@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popup - To-Do</title>
+    <link rel="stylesheet" href="css/popup.css" type="text/css" />
+</head>
+<body onLoad="loadCookie();">
+<script>
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-24620401-1']);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = 'https://ssl.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+</script>
+<script>
+	function loadCookie(){
+		chrome.cookies.get({url:"https://plus.google.com", name:"favoriteStream"}, function(cookie)
+		{
+			if (cookie.value != null){
+				document.getElementById('streamId').value = cookie.value;
+			}
+		});
+	}
+	function saveCookie(streamId){
+		if (streamId.indexOf("https://plus.google.com/stream/circles/") != -1)
+		{
+			streamId = streamId.substring(39,streamId.lenght);
+		}
+		var expDate = new Date();
+		expDate.setDate(expDate.getDate()+365);
+		
+		chrome.cookies.set({url:"https://plus.google.com", name:"favoriteStream", value:streamId, expirationDate:expDate.getTime()});
+		loadCookie();
+	}
+	function resetCookie(){
+		chrome.cookies.remove({url:"https://plus.google.com", name:"favoriteStream"});
+	}
+</script>
+
+Enter your Favorite Google+ Stream Id (or complete URL):
+<input type="text" id="streamId" name="streamId" style="width:400px"><br>
+<input type=submit value="Save" onClick="saveCookie(document.getElementById('streamId').value);">
+<input type=submit value="Reset" onClick="resetCookie();">
+</body>
+</html>

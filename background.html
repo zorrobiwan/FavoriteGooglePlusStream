@@ -1,0 +1,29 @@
+<html>
+<head>
+<script>
+     var _gaq = _gaq || [];
+     _gaq.push(['_setAccount', 'UA-24620401-1']);
+     _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = 'https://ssl.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+</script>
+<script>
+chrome.history.onVisited.addListener(function(result) {
+	if(result.url == ("https://plus.google.com/"))
+	
+	{
+	chrome.cookies.get({url:"https://plus.google.com", name:"favoriteStream"}, function(cookie)
+		{
+			if (cookie.value !=null)
+				chrome.tabs.executeScript(null,{code:"window.location='stream/circles/"+cookie.value+"'"});
+		}
+	);
+	}
+});
+</script>
+</head>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "Favorite G+ Stream",
+  "version": "1.1",
+  "description": "Allow any G+ user to set a Favorite Stream as default. Visit my profile at https://plus.google.com/101147157576507592317",
+  "background_page": "background.html",
+  "permissions": [
+    "tabs", "https://*/*", "history", "cookies"
+  ],
+  "browser_action": {
+		"default_icon": "stream19.png",
+		"default_title": "Favorite G+ Stream Config",
+		"popup": "popup.html"
+  },
+  "icons": { "16": "stream16.png",
+           "48": "stream48.png",
+          "128": "stream128.png" }
+}
