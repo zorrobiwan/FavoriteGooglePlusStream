@@ -13,3 +13,5 @@ Now, when you click on "Google+" or "Stream", your Favorite Stream is displayed 
 To get the main Stream back, click on "Reset" under the config panel or disable this extension.
 
 Visit my G+ profile at: https://plus.google.com/101147157576507592317
+
+Google Chrome Extension page: https://chrome.google.com/webstore/detail/favorite-g+-stream/obonkiddcldghanlplbenkihpplheikg
