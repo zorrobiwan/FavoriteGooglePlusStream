@@ -1,4 +1,5 @@
 Allow any G+ user to set a Favorite Stream as default. Visit my profile at https://plus.google.com/101147157576507592317
+
 Allow any Google+ user to set a Favorite Stream as default instead of the main one.
 
 How to setup a favorite Stream ?
